@@ -8,19 +8,32 @@ import { Post } from '../models/post.model';
 })
 export class PostService {
 
-  posts=[
-    new Post('455','title1','le contenu de 1ere article '),
-    new Post('458','title2','le contenu de 2eme article '),
-    new Post('522','title3','le contenu de 3eme article '),
-    new Post('544','title4','le contenu de 4eme article '),
-  ];
+  url = 'http://localhost:3000/postApi';
+  Posts:any;
   constructor(private http: HttpClient) {
-    this.chargerListPost().subscribe((listApp) => {
-      console.log(listApp);
+    this.chargerListPost().subscribe((listPost) => {
+      console.log(listPost);
     });
+
   }
 
-  chargerListPost() : Observable<Post[]>{
+  chargerListPost(): Observable<Post[]> {
     return this.http.get<Post[]>('http://localhost:3000/postApi');
+  }
+
+  getPost(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.url);
+  }
+  addpost(p: Post): Observable<Post[]> {
+    return this.http.post<Post[]>(this.url, p);
+  }
+  getpostbyId(id: string): Observable<Post[]> {
+    return this.http.get<Post[]>(this.url + id);
+  }
+  updatepost(p: Post): Observable<any> {
+    return this.http.put<any>(this.url + p.id, p);
+  }
+  deletepost(id:string): Observable<any> {
+    return this.http.delete<any>(this.url +id);
   }
 }

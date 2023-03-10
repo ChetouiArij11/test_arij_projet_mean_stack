@@ -8,7 +8,7 @@ router.get("/",(req, res) => {
 });
 router.get("/:id",(req, res) => {
   Post.findById(req.params.id)
-      .then(exercise => res.json(exercise))
+      .then(Posts => res.json(Posts))
       .catch(err => res.status(400).json('Error: ' + err));
 });
 

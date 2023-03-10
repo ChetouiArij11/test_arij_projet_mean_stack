@@ -11,7 +11,7 @@ app.use(cors());
 // connection vers mongoDB Atlas (service cloud)
 mongoose
   .connect(
-    "mongodb+srv://arij:0000@cluster0.irw5f0t.mongodb.net/PostDB?retryWrites=true"
+    "mongodb+srv://arij:0000@cluster0.irw5f0t.mongodb.net/Posts?retryWrites=true"
   )
   .then(() => {
     console.log("Database connected !!!");
