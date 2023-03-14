@@ -10,6 +10,7 @@ export class PostService {
 
   url = 'http://localhost:3000/postApi';
   Posts:any;
+
   constructor(private http: HttpClient) {
     this.chargerListPost().subscribe((listPost) => {
       console.log(listPost);
@@ -33,7 +34,8 @@ export class PostService {
   updatepost(p: Post): Observable<any> {
     return this.http.put<any>(this.url + p.id, p);
   }
-  deletepost(id:string): Observable<any> {
-    return this.http.delete<any>(this.url +id);
+  deletepost(id: number): Observable<any> {
+    const url = `${this.url}/${id}`;
+    return this.http.delete(url);
   }
 }

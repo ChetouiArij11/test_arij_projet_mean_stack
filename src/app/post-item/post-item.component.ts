@@ -8,7 +8,7 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./post-item.component.css']
 })
 export class PostItemComponent {
-  @Input() id !:string;
+  @Input() id !:number;
   @Input() title !:string;
   @Input() contenu !:string;
   @Input() index !:number;
@@ -19,20 +19,17 @@ export class PostItemComponent {
   constructor(private postService: PostService) {
     this.posts = this.postService.Posts}
     ngOnInit() {
-      this.getPosts();
-      this.postService.getPost().subscribe((posts) => {
-        this.posts = posts;
-      });
+      this.postService.getPost().subscribe(posts => this.posts = posts);
   }
 
   getPosts() {
       this.postService.getPost()
           .subscribe(posts => this.posts = posts);
   }
-  deletePost(id: string) {
+  deletePost(id: number) {
     this.postService.deletepost(id).subscribe(() => {
-
-      this.posts = this.posts.filter((post) => post._id !== id);
+      // Supprimer le post de la liste des posts affichés
+      this.posts = this.posts.filter(post => post.id !== id);
     });
   }
 

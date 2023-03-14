@@ -1,8 +1,8 @@
 export class Post {
-  id :string;
+  id :number;
   title:string;
   contenu:string;
-  constructor(i:string,t:string,c:string) {
+  constructor(i:number,t:string,c:string) {
     this.id=i;
     this.title=t;
     this.contenu=c;

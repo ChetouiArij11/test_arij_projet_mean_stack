@@ -14,8 +14,8 @@
   </div>
 </div>&nbsp;&nbsp;
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<button type="button" class="btn btn-outline-success" ng-click="editPost(post)">Editer</button> &nbsp;&nbsp;
-<button class="btn btn-danger" ng-click="deletePost(post._id)">Supprimer</button>
+<button type="button" class="btn btn-outline-success" ng-click="updatepost(posts)">Editer</button> &nbsp;&nbsp;
+<button (click)="deletePost(id)">Supprimer</button>
 &nbsp;&nbsp;
 </div><br>
 

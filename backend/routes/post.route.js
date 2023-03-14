@@ -1,6 +1,12 @@
 
 const router = require('express').Router();
 let Post = require('../models/post.model');
+Posts =[
+  { 'id': "001215", 'title': "a", 'contenu': "midfilder" },
+  { 'id': "554845", 'title': "b", 'contenu': "attacker" },
+  { 'id': "88445", 'title': "c", 'contenu': "goalkeeper" },
+  { 'id': "84845445", 'title': "d", 'contenu': "deffender" },
+];
 router.get("/",(req, res) => {
     Post.find()
         .then(Posts => res.json(Posts))
